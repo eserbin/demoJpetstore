@@ -1,0 +1,40 @@
+{
+  "application": {
+    "name": "jboss_app",
+    "version": "2.0",
+    "project": "Default",
+    "components": {
+      "component": [
+        {
+          "name": "JBoss-RC",
+          "description": "This is jpetstore jboss component",
+          "tier": "JBossAppTier",
+          "artifact": {
+            "artifactType": "JBOSS",
+            "artifactName": "org.ec:jpet",
+            "artifactVersion": "1.0",
+            "sourceDirectory" : "jbosshello",
+            "artifactFileName": "jpetstore-mysql.war",
+            "jbossConfig" : "jboss7-at-win",
+            "jbossCli" : "/opt/jboss/bin/jboss-cli.sh",
+	    "jdbcDriver" : "com.mysql.jdbc.Driver",
+            "jdbcConnectionString" : "jdbc:mysql://10.1.217.70:3306/jbosshello",
+            "jdbcUsername" : "flowqe",
+            "jdbcPassword" : "flowqe"
+          }
+        }
+      ]
+    },
+    "environments" : {
+      "environment" : [
+        {
+          "name": "Prod",
+          "project": "Default",
+          "tierMap": {
+            "JBossAppTier": "JBossEnvTier"
+          }
+        }
+      ]
+    }
+  }
+}
